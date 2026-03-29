@@ -37,7 +37,12 @@ export default function Home() {
 
   return (
     <>
-      <div className={`preloader ${!preloaderVisible ? 'hidden' : ''}`}>
+      <div className="grain-overlay" />
+    <div className={`
+      .grain-overlay::after { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9998; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+      @keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+      @keyframes pulse { 0%,100% { opacity: 0.8; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
+preloader ${!preloaderVisible ? 'hidden' : ''}`}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(24px, 4vw, 40px)', fontWeight: 400, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--light)', marginBottom: 12 }}>The Automation Office</div>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#4AE68A', opacity: 0.6 }}>KHG Technology Division</div>
       </div>
@@ -56,6 +61,8 @@ export default function Home() {
 
       {/* HERO — tech-forward, monospace dominant */}
       <section style={{ position: 'relative', height: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#060608' }}>
+      <img src="https://dzlmtvodpyhetvektfuo.supabase.co/storage/v1/object/public/brand-graphics/dr_dorsey/website/luxury-venue.jpg" alt="" style={{position:'absolute',top:0,left:0,width:'100%',height:'100%',objectFit:'cover',opacity:0.25,animation:'slowZoom 20s ease-in-out infinite alternate',zIndex:0}} />
+      <div style={{position:'absolute',top:0,left:0,width:'100%',height:'100%',background:'linear-gradient(180deg,rgba(12,14,18,0.4) 0%,transparent 30%,transparent 60%,rgba(12,14,18,1) 100%)',zIndex:1}} />
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0.06, background: 'repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(74,230,138,0.15) 39px, rgba(74,230,138,0.15) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(74,230,138,0.15) 39px, rgba(74,230,138,0.15) 40px)' }} />
         <div style={{ position: 'relative', zIndex: 3, maxWidth: 700, padding: '0 clamp(20px, 4vw, 80px)' }}>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(8px, 0.7vw, 10px)', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#4AE68A', marginBottom: 20, animation: 'fadeUp 0.8s var(--ease-out) 1.8s both' }}>AI Infrastructure · Workflow Engineering</div>
